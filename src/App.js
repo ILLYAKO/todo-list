@@ -13,28 +13,33 @@ class App extends Component {
     item: "",
     editItem: false,
   };
+
   handleChange = (e) => {
+    // console.log("event: " + e.target.value);
     this.setState({
-      item: e.target.vaue,
+      item: e.target.value,
     });
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-
     const newItem = {
       id: this.state.id,
       title: this.state.item,
     };
-    console.log(newItem);
-
+    console.log("NewItem: " + newItem.title);
     const updatedItems = [...this.state.items, newItem];
-
     this.setState({
       items: updatedItems,
       item: "",
       id: uuid(),
       editItem: false,
+    });
+  };
+
+  clearList = () => {
+    this.setState({
+      item: [],
     });
   };
 
@@ -49,7 +54,7 @@ class App extends Component {
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
             />
-            <TodoList items={this.state.items} />
+            <TodoList items={this.state.items} clearList={this.clearList} />
           </div>
         </div>
       </div>
