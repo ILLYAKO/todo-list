@@ -43,6 +43,8 @@ class App extends Component {
     });
   };
 
+  handleDelete=(id)=>{}
+
   render() {
     return (
       <div className="container">
