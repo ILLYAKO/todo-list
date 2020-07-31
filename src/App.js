@@ -39,7 +39,7 @@ class App extends Component {
 
   clearList = () => {
     this.setState({
-      item: [],
+      items: [],
     });
   };
 
